@@ -1,5 +1,25 @@
 body {
-  background-color: #000000;
+  background-color: #333;
+}
+
+@mixin foodColoring($color) {
+  background-color: $color;
+  box-shadow:
+      0 2px 0px lighten($color, 5%),
+      0 4px 0px darken($color, 8.2%),
+      0 6px 0px darken($color, 8.4%),
+      0 8px 0px darken($color, 8.6%),
+      0 10px 0px darken($color, 8.8%),
+      0 12px 0px darken($color, 9%),
+      0 14px 0px darken($color, 9.2%),
+      0 16px 0px darken($color, 9.4%),
+      0 18px 0px darken($color, 9.6%),
+      0 20px 0px darken($color, 9.8%),
+      0 22px 0px darken($color, 10%),
+      0 24px 0px darken($color, 10.2%),
+      0 26px 0px darken($color, 10.4%),
+      0 28px 0px darken($color, 10.6%),
+      0 30px 0px darken($color, 10.8%);
 }
 
 .candle-count-display {
@@ -55,8 +75,8 @@ body {
   width: 250px;
   height: 100px;
   border-radius: 50%;
-  background-color: #302c64;
-  box-shadow: 0 2px 0px #786ffb, 0 4px 0px #786ffb, 0 6px 0px #786ffb, 0 8px 0px #786ffb, 0 10px 0px #786ffb, 0 12px 0px #786ffb, 0 14px 0px #786ffb, 0 16px 0px #786ffb, 0 18px 0px #786ffb, 0 20px 0px #786ffb, 0 22px 0px #786ffb, 0 24px 0px #786ffb, 0 26px 0px #786ffb, 0 28px 0px #786ffb, 0 30px 0px #786ffb;
+  background-color: #6A3717;
+  box-shadow: 0 2px 0px #7F4B2A, 0 4px 0px #7F4B2A, 0 6px 0px #7F4B2A, 0 8px 0px #7F4B2A, 0 10px 0px #7F4B2A, 0 12px 0px #7F4B2A, 0 14px 0px #7F4B2A, 0 16px 0px #7F4B2A, 0 18px 0px #7F4B2A, 0 20px 0px #7F4B2A, 0 22px 0px #7F4B2A, 0 24px 0px #7F4B2A, 0 26px 0px #7F4B2A, 0 28px 0px #7F4B2A, 0 30px 0px #7F4B2A;
 }
 
 .layer-top {
@@ -74,7 +94,7 @@ body {
 .icing {
   top: 2px;
   left: 5px;
-  background-color: #6A3717;
+  background-color: #dfcec3;
   width: 240px;
   height: 90px;
   border-radius: 50%;
@@ -86,8 +106,8 @@ body {
   right: 5px;
   bottom: 6px;
   left: 5px;
-  background-color: #6A3717;
-  box-shadow: 0 0 4px #6A3717, 0 0 4px #6A3717, 0 0 4px #6A3717;
+  background-color: #dfcec3;
+  box-shadow: 0 0 4px #dfcec3, 0 0 4px #dfcec3, 0 0 4px #dfcec3;
   border-radius: 50%;
   z-index: 1;
 }
@@ -98,7 +118,7 @@ body {
   height: 60px;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
-  background-color: #6A3717; 
+  background-color: #dfcec3; 
 }
 
 .drip1 {
@@ -191,7 +211,7 @@ body {
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: #000000;
+    background-color: #333;
     color: #4987cd;
     text-align: center;
     padding: 10px 0;
@@ -231,12 +251,7 @@ body {
   .layer {
     width: 180px;
     height: 70px;
-    position: absolute;
-    display: block;
-    border-radius: 50%;
-    background-color: #302c64;
-  box-shadow: 0 2px 0px #786ffb, 0 4px 0px #786ffb, 0 6px 0px #786ffb, 0 8px 0px #786ffb, 0 10px 0px #786ffb, 0 12px 0px #786ffb, 0 14px 0px #786ffb, 0 16px 0px #786ffb, 0 18px 0px #786ffb, 0 20px 0px #786ffb, 0 22px 0px #786ffb, 0 24px 0px #786ffb, 0 26px 0px #786ffb, 0 28px 0px #786ffb, 0 30px 0px #786ffb;
-
+    
   }
 
   .layer-top {
@@ -296,7 +311,7 @@ body {
 
   .drip1 {
     top: 35px;
-    left: 3px;
+    left: 5px;
     height: 30px;
     width: 25px;
   }
