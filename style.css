@@ -1,353 +1,176 @@
 body {
-  background-color: #333;
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive;
+  background-color: #111;
+  color: white;
+  overflow-x: hidden;
 }
 
-@mixin foodColoring($color) {
-  background-color: $color;
-  box-shadow:
-      0 2px 0px lighten($color, 5%),
-      0 4px 0px darken($color, 8.2%),
-      0 6px 0px darken($color, 8.4%),
-      0 8px 0px darken($color, 8.6%),
-      0 10px 0px darken($color, 8.8%),
-      0 12px 0px darken($color, 9%),
-      0 14px 0px darken($color, 9.2%),
-      0 16px 0px darken($color, 9.4%),
-      0 18px 0px darken($color, 9.6%),
-      0 20px 0px darken($color, 9.8%),
-      0 22px 0px darken($color, 10%),
-      0 24px 0px darken($color, 10.2%),
-      0 26px 0px darken($color, 10.4%),
-      0 28px 0px darken($color, 10.6%),
-      0 30px 0px darken($color, 10.8%);
+.overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  cursor: pointer;
 }
 
-.candle-count-display {
+.tap-text {
+  font-size: 1.5rem;
   text-align: center;
-  margin-top: 150px;
-  margin-bottom: 30px;
-  font-family: 'Arial', sans-serif;
-  font-size: 30px;
-  font-weight: bold;
-  color: #ffffff;
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: fit-content;
+  color: #fff9c4;
+  padding: 2rem;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.hidden {
+  display: none;
+}
+
+.room {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+}
+
+.room-bg {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
+.cake img {
+  width: 250px;
+  margin-top: 3rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.message-box {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 1.5rem;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.music-player {
+  margin-top: 1rem;
+  max-width: 300px;
   margin-left: auto;
   margin-right: auto;
-  border: 2px solid #f9f7f7;
 }
 
-.candle-count-display span {
-  font-weight: bold;
-  color: #f17611;
+@media (max-width: 600px) {
+  .cake img {
+    width: 180px;
+  }
+
+  .message-box {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .tap-text {
+    font-size: 2rem;
+  }
+}
+
+.container {
+  padding: 20px;
+}
+
+.room {
+  position: relative;
+  text-align: center;
+}
+
+.room-bg {
+  width: 100%;
+  max-height: 100vh;
+  object-fit: cover;
+  opacity: 0.2;
 }
 
 .cake {
   position: absolute;
-  width: 250px;
-  height: 200px;
-  top: 50%;
+  top: 20%;
   left: 50%;
-  margin-top: -70px;
-  margin-left: -125px;
-}
-
-.plate {
-  width: 270px;
-  height: 110px;
-  position: absolute;
-  bottom: -10px;
-  left: -10px;
-  background-color: #ccc;
-  border-radius: 50%;
-  box-shadow: 0 2px 0 #b3b3b3, 0 4px 0 #b3b3b3, 0 5px 40px rgba(0, 0, 0, 0.5);
-}
-
-.cake > * {
-  position: absolute;
-}
-
-.layer {
-  position: absolute;
-  display: block;
-  width: 250px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: #6A3717;
-  box-shadow: 0 2px 0px #7F4B2A, 0 4px 0px #7F4B2A, 0 6px 0px #7F4B2A, 0 8px 0px #7F4B2A, 0 10px 0px #7F4B2A, 0 12px 0px #7F4B2A, 0 14px 0px #7F4B2A, 0 16px 0px #7F4B2A, 0 18px 0px #7F4B2A, 0 20px 0px #7F4B2A, 0 22px 0px #7F4B2A, 0 24px 0px #7F4B2A, 0 26px 0px #7F4B2A, 0 28px 0px #7F4B2A, 0 30px 0px #7F4B2A;
-}
-
-.layer-top {
-  top: 0px;
-}
-
-.layer-middle {
-  top: 33px;
-}
-
-.layer-bottom {
-  top: 66px;
-}
-
-.icing {
-  top: 2px;
-  left: 5px;
-  background-color: #dfcec3;
-  width: 240px;
-  height: 90px;
-  border-radius: 50%;
-}
-.icing:before {
-  content: "";
-  position: absolute;
-  top: 4px;
-  right: 5px;
-  bottom: 6px;
-  left: 5px;
-  background-color: #dfcec3;
-  box-shadow: 0 0 4px #dfcec3, 0 0 4px #dfcec3, 0 0 4px #dfcec3;
-  border-radius: 50%;
+  transform: translateX(-50%);
   z-index: 1;
 }
 
-.drip {
- display: block;
-  width: 50px;
-  height: 60px;
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
-  background-color: #dfcec3; 
+.cake img {
+  width: 250px;
 }
 
-.drip1 {
-  top: 53px;
-  left: 5px;
-  transform: skewY(15deg);
-  height: 48px;
-  width: 40px;
+.message-box {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 20px;
+  border-radius: 16px;
+  max-width: 600px;
+  margin: 20px auto;
+  font-size: 1.1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  z-index: 2;
+  position: relative;
 }
 
-.drip2 {
-  top: 69px;
-  left: 181px;
-  transform: skewY(-15deg);
+.music-player {
+  margin-top: 30px;
 }
 
-.drip3 {
-  top: 54px;
-  left: 90px;
-  width: 80px;
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
+/* Surprise screen styling */
+.surprise-screen {
+  text-align: center;
+  padding: 40px 20px;
 }
 
-.candle {
-  background-color: #9e1019;
-  width: 12px;
-  height: 35px;
-  border-radius: 6px/3px;
-  top: -20px;
-  left: 50%;
-  margin-left: -8px;
-  z-index: 10;
-}
-.candle:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 12px;
-  height: 6px;
-  border-radius: 50%;
-  background-color: #9e1019;
+.sticker {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
 }
 
-.candle.out .flame {
-  display: none;
+.dialogue {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  background: #fffaf3;
+  border: 2px dashed #ff9f9f;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 0 auto 30px;
 }
 
-.flame {
-  position: absolute;
-  background-color: orange;
-  width: 10px;
-  height: 25px;
-  border-radius: 8px 8px 8px 8px/20px 20px 8px 8px;
-  top: -34px;
-  left: 50%;
-  margin-left: -7.5px;
-  z-index: 10;
-  box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
-  transform-origin: 50% 90%;
-  animation: flicker 1s ease-in-out alternate infinite;
+.next-button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #ff6f91;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-@keyframes flicker {
-  0% {
-    transform: skewX(5deg);
-    box-shadow: 0 0 10px rgba(255, 165, 0, 0.2), 0 0 20px rgba(255, 165, 0, 0.2), 0 0 60px rgba(255, 165, 0, 0.2), 0 0 80px rgba(255, 165, 0, 0.2);
-  }
-  25% {
-    transform: skewX(-5deg);
-    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
-  }
-  50% {
-    transform: skewX(10deg);
-    box-shadow: 0 0 10px rgba(255, 165, 0, 0.3), 0 0 20px rgba(255, 165, 0, 0.3), 0 0 60px rgba(255, 165, 0, 0.3), 0 0 80px rgba(255, 165, 0, 0.3);
-  }
-  75% {
-    transform: skewX(-10deg);
-    box-shadow: 0 0 10px rgba(255, 165, 0, 0.4), 0 0 20px rgba(255, 165, 0, 0.4), 0 0 60px rgba(255, 165, 0, 0.4), 0 0 80px rgba(255, 165, 0, 0.4);
-  }
-  100% {
-    transform: skewX(5deg);
-    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
-  }
-}
-
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #333;
-    color: #4987cd;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 14px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.heart {
-    animation: blink 1s linear infinite;
-    width: 16px;
-    height: 16px;
-    margin-left: 5px;
-}
-@keyframes blink {
-    0% { opacity: 0; }
-    50% { opacity: 1; }
-    100% { opacity: 0; }
-}
-
-@media (max-width: 768px) {
-  .candle-count-display {
-    font-size: 20px;
-    margin-top: 100px;
-    margin-bottom: 20px;
-    padding: 8px;
-  }
-
-  .cake {
-    width: 180px;
-    height: 150px;
-    margin-top: -50px;
-    margin-left: -90px;
-  }
-
-  .layer {
-    width: 180px;
-    height: 70px;
-    
-  }
-
-  .layer-top {
-    top: 0px; /* Vị trí của lớp trên cùng */
-  }
-
-  .layer-middle {
-    top: 23px; /* Lớp giữa */
-  }
-
-  .layer-bottom {
-    top: 46px; /* Lớp dưới cùng */
-  }
-
-  .icing {
-    width: 170px;
-    height: 60px;
-    left: 5px;
-    top: 2px;
-  }
-
-  .plate {
-    width: 190px;
-    height: 80px;
-    left: 0;
-    bottom: -5px;
-    margin-left: -7px;
-  }
-
-  .layer-top, .layer-middle, .layer-bottom {
-    top: auto;
-  }
-  
-  .layer-top {
-    top: 0;
-  }
-
-  .layer-middle {
-    top: 23px;
-  }
-
-  .layer-bottom {
-    top: 46px;
-  }
-
-  .icing {
-    width: 170px;
-    height: 60px;
-    left: 5px;
-    top: 2px;
-  }
-
-  .drip {
-    width: 30px;
-    height: 40px;
-  }
-
-  .drip1 {
-    top: 35px;
-    left: 5px;
-    height: 30px;
-    width: 25px;
-  }
-
-  .drip2 {
-    top: 45px;
-    left: 130px;
-  }
-
-  .drip3 {
-    top: 36px;
-    left: 60px;
-    width: 60px;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-  }
-
-  .candle {
-    width: 8px;
-    height: 25px;
-    top: -15px;
-  }
-
-  .flame {
-    width: 8px;
-    height: 20px;
-    top: -26px;
-  }
-
-
-  .footer {
-    font-size: 12px;
-  }
-
-  .heart {
-    width: 12px;
-    height: 12px;
-  }
+.next-button:hover {
+  background-color: #e85b7d;
 }

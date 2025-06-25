@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday To You</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2kxeDFjemwzMHl1cDB5NTc0MHA2YjJjazd0dHNwOGs3Z2o0dHhtdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/eltZvfFAW9f9HI1foH/giphy.webp"
+      type="image/png"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/canvas-confetti/1.6.0/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="shinchan.css" />
+  </head>
+<body>
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <section class="about" id="shinchan">
+        <div class="about-container">
+            <div class="about-img">
+                <img
+                    src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjVjOXVwdnQ4ZTI4OGViN3J5N3M3ZHBsODh0NjlsZzhjbmRvd2pmaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Foh111wkCZ3n0lR6rR/giphy.gif"
+                    alt="funny sticker"
+                    class="sticker"
+                />
+            </div>
+            <div class="about-content">
+                <h1>
+                    <span class="highlight">Surpriseeeee!</span> Hiii
+                    <span class="name">Soo 🎉</span>
+                </h1>
+                <p class="message">
+                    💫🎉 This year is the same as last year, but this year, there’s one more thing — 
+                   
+                    <span class="highlight">You have to light your own birthday candles!</span> hehe<br />
+                    <br/></p>  Ok next...press 
+                    <span class="highlight">"allow accept microphone"</span>, keep quiet, then tap on your cake, and don't forget your wish.
+                </p><br/>
+                <a href="cake/cake.html">
+                    <button class="next-button">
+                       Let the magic begin ↣
+                    </button>
+                </a>
+                <p class="ps-note">
+                    <strong>P.S.</strong>I can't find a gif of Shinchan with a birthday cake though 😅
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Loading animation
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('loading').classList.add('hidden');
+            }, 1000);
+        });
+
+        // Add floating hearts randomly
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '💖';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.top = Math.random() * 100 + '%';
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 3000);
+        }
+
+        // Create hearts periodically
+        setInterval(createHeart, 2000);
+
+        // Add sparkle effect on button hover
+        const button = document.querySelector('.next-button');
+        button.addEventListener('mouseenter', function() {
+            this.style.background = 'linear-gradient(135deg, #764ba2, #667eea)';
+        });
+        
+        button.addEventListener('mouseleave', function() {
+            this.style.background = 'linear-gradient(135deg, #667eea, #764ba2)';
+        });
+
+        // Add click effect
+        button.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.style.position = 'absolute';
+            ripple.style.borderRadius = '50%';
+            ripple.style.background = 'rgba(255, 255, 255, 0.5)';
+            ripple.style.transform = 'scale(0)';
+            ripple.style.animation = 'ripple 0.6s linear';
+            ripple.style.pointerEvents = 'none';
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+
+        // Add CSS for ripple effect
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
