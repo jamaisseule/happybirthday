@@ -17,11 +17,62 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="overlay" id="overlay">
-      <p class="tap-text">
-        Hey...! Why is it so dark here?<br />
-        Tap to turn on the light.
-      </p>
+    <div class="spotify-wrapper">
+      <iframe
+        style="border-radius: 12px"
+        src="https://open.spotify.com/embed/track/2xLOMHjkOK8nzxJ4r6yOKR?utm_source=generator"
+        width="100%"
+        height="352"
+        frameborder="0"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"
+      >
+      </iframe>
+      <br /><br />
+    </div>
+    <div class="cake" id="cake">
+      <div class="plate"></div>
+      <div class="layer layer-bottom"></div>
+      <div class="layer layer-middle"></div>
+      <div class="layer layer-top"></div>
+      <div class="icing"></div>
+      <div class="drip drip1"></div>
+      <div class="drip drip2"></div>
+      <div class="drip drip3"></div>
+    </div>
+
+    <button class="heart-button" id="openLetter" aria-label="Open letter">
+      📩
+    </button>
+
+    <div
+      class="letter-container"
+      id="letter"
+      role="dialog"
+      aria-modal="true"
+      aria-hidden="true"
+      tabindex="-1"
+    >
+      <div class="letter-content">
+        <p class="letter-text">
+          Happy Birthday to me 🎉 <br /><br />
+          HEY HEY HEYYYY! Another trip around the sun and wow, I’m still
+          standing. 😝 <br /><br />
+          Here’s to the quiet strength I didn’t know I had, the laughs I didn’t
+          expect, the tears I survived, and the small wins that kept me going.
+          💃✨ <br /><br />
+          I’m proud of how far I’ve come—even when no one saw it but me. So
+          today, I’ll eat the cake, romanticize my life a little extra, and
+          remind myself: I deserve all the good that’s coming. <br />
+          <br />
+          Cheers to more magic, more growth, and more “I did that” moments. 🌈✌️
+          <br /><br />
+          Happy birthday, me. You’re doing amazing.
+          <br />Love,<br />
+          Me 💛🎂✨
+        </p>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>
