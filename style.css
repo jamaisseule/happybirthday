@@ -652,3 +652,56 @@ body::before {
 .letter-container::-webkit-scrollbar {
   display: none;
 }
+
+
+
+/* Special age candle */
+.age-candle {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 60px;
+  background: linear-gradient(135deg, #ff9ff3, #f368e0);
+  border-radius: 10px;
+  z-index: 20;
+  box-shadow: 0 0 15px rgba(243, 104, 224, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.age-number {
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  z-index: 2;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  font-family: "Poppins", sans-serif;
+}
+
+/* Flame for age candle */
+.age-flame {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 30px;
+  background: radial-gradient(circle, #ffe066 0%, #ff9f43 45%, #ff6b6b 80%);
+  border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+  box-shadow:
+    0 0 15px rgba(255, 159, 67, 0.9),
+    0 0 30px rgba(255, 107, 107, 0.7);
+  animation: ageFlicker 1.4s infinite alternate;
+}
+
+@keyframes ageFlicker {
+  from {
+    transform: translateX(-50%) scale(1) rotate(-2deg);
+  }
+  to {
+    transform: translateX(-50%) scale(1.1) rotate(2deg);
+  }
+}
