@@ -37,22 +37,15 @@
                     setTimeout(() => sparkle.remove(), 2000);
                 }
             }
-
-          const cakeTop = document.querySelector(".layer-top");
+            const cakeTop = document.querySelector(".icing");
 
             cakeTop.addEventListener("click", function (event) {
-                event.stopPropagation(); // prevent bubbling to cake
-
-                const cakeRect = cake.getBoundingClientRect();
-                const topRect = cakeTop.getBoundingClientRect();
-
-                // X relative to cake
-                const left = event.clientX - cakeRect.left;
-
-                // Y fixed slightly above the top layer
-                const top = topRect.top - cakeRect.top - 8;
-
+                const rect = cakeTop.getBoundingClientRect();
+                const left = event.clientX - rect.left;
+                const top = event.clientY - rect.top;
                 addCandle(left, top);
+
+                // Add click effect
                 createFloatingHeart(event.clientX, event.clientY);
             });
 
