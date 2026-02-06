@@ -38,13 +38,21 @@
                 }
             }
 
-            cake.addEventListener("click", function (event) {
-                const rect = cake.getBoundingClientRect();
-                const left = event.clientX - rect.left;
-                const top = event.clientY - rect.top;
-                addCandle(left, top);
+          const cakeTop = document.querySelector(".layer-top");
 
-                // Add click effect
+            cakeTop.addEventListener("click", function (event) {
+                event.stopPropagation(); // prevent bubbling to cake
+
+                const cakeRect = cake.getBoundingClientRect();
+                const topRect = cakeTop.getBoundingClientRect();
+
+                // X relative to cake
+                const left = event.clientX - cakeRect.left;
+
+                // Y fixed slightly above the top layer
+                const top = topRect.top - cakeRect.top - 8;
+
+                addCandle(left, top);
                 createFloatingHeart(event.clientX, event.clientY);
             });
 
