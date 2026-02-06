@@ -78,6 +78,7 @@
 
             function blowOutCandles() {
                 let blownOut = 0;
+                const ageFlame = document.querySelector(".age-flame");
                 if (isBlowing() && ageFlame) {
                     ageFlame.style.display = "none";
                 }

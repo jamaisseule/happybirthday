@@ -654,54 +654,89 @@ body::before {
 }
 
 
-
-/* Special age candle */
-.age-candle {
+/* ===== NUMBER CANDLE (AGE) ===== */
+.number-candle {
   position: absolute;
-  top: -28px;
+  top: -38px;
   left: 50%;
   transform: translateX(-50%);
-  width: 36px;
-  height: 60px;
-  background: linear-gradient(135deg, #ff9ff3, #f368e0);
-  border-radius: 10px;
-  z-index: 20;
-  box-shadow: 0 0 15px rgba(243, 104, 224, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  z-index: 30;
+  pointer-events: none;
 }
 
-.age-number {
-  color: white;
-  font-weight: 700;
-  font-size: 18px;
-  z-index: 2;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+.number-text {
+  display: inline-block;
+  font-size: 52px;
+  font-weight: 800;
   font-family: "Poppins", sans-serif;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 14px;
+
+  background: linear-gradient(
+    135deg,
+    #ff6b6b,
+    #feca57,
+    #48dbfb
+  );
+
+  box-shadow:
+    0 6px 0 #c44569,
+    0 10px 25px rgba(255, 107, 107, 0.6),
+    0 0 30px rgba(255, 202, 87, 0.8);
+
+  text-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.4);
+
+  animation: numberGlow 2.5s ease-in-out infinite;
 }
 
-/* Flame for age candle */
-.age-flame {
+/* Glow breathing */
+@keyframes numberGlow {
+  0%, 100% {
+    box-shadow:
+      0 6px 0 #c44569,
+      0 10px 25px rgba(255, 107, 107, 0.6),
+      0 0 30px rgba(255, 202, 87, 0.8);
+  }
+  50% {
+    box-shadow:
+      0 6px 0 #c44569,
+      0 12px 35px rgba(72, 219, 251, 0.8),
+      0 0 45px rgba(72, 219, 251, 1);
+  }
+}
+
+/* Flame on top of number */
+.number-flame {
   position: absolute;
-  top: -30px;
+  top: -34px;
   left: 50%;
   transform: translateX(-50%);
-  width: 14px;
-  height: 30px;
-  background: radial-gradient(circle, #ffe066 0%, #ff9f43 45%, #ff6b6b 80%);
+  width: 18px;
+  height: 38px;
+
+  background: radial-gradient(
+    circle,
+    #fff3b0 0%,
+    #ff9f43 40%,
+    #ff6b6b 80%
+  );
+
   border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+
   box-shadow:
-    0 0 15px rgba(255, 159, 67, 0.9),
-    0 0 30px rgba(255, 107, 107, 0.7);
-  animation: ageFlicker 1.4s infinite alternate;
+    0 0 18px rgba(255, 159, 67, 1),
+    0 0 35px rgba(255, 107, 107, 0.9);
+
+  animation: numberFlicker 1.2s infinite alternate;
 }
 
-@keyframes ageFlicker {
+@keyframes numberFlicker {
   from {
-    transform: translateX(-50%) scale(1) rotate(-2deg);
+    transform: translateX(-50%) rotate(-3deg) scale(1);
   }
   to {
-    transform: translateX(-50%) scale(1.1) rotate(2deg);
+    transform: translateX(-50%) rotate(3deg) scale(1.15);
   }
 }
