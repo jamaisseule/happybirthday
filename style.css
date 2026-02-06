@@ -67,9 +67,6 @@ body::before {
   padding: 0 10px;
   z-index: 1;
 }
-.layer-top {
-  cursor: pointer;
-}
 .spotify-wrapper iframe {
   width: 100%;
   height: 170px;
@@ -651,92 +648,4 @@ body::before {
 
 .letter-container::-webkit-scrollbar {
   display: none;
-}
-
-
-/* ===== NUMBER CANDLE (AGE) ===== */
-.number-candle {
-  position: absolute;
-  top: -38px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 30;
-  pointer-events: none;
-}
-
-.number-text {
-  display: inline-block;
-  font-size: 52px;
-  font-weight: 800;
-  font-family: "Poppins", sans-serif;
-  color: #fff;
-  padding: 6px 14px;
-  border-radius: 14px;
-
-  background: linear-gradient(
-    135deg,
-    #ff6b6b,
-    #feca57,
-    #48dbfb
-  );
-
-  box-shadow:
-    0 6px 0 #c44569,
-    0 10px 25px rgba(255, 107, 107, 0.6),
-    0 0 30px rgba(255, 202, 87, 0.8);
-
-  text-shadow:
-    0 2px 6px rgba(0, 0, 0, 0.4);
-
-  animation: numberGlow 2.5s ease-in-out infinite;
-}
-
-/* Glow breathing */
-@keyframes numberGlow {
-  0%, 100% {
-    box-shadow:
-      0 6px 0 #c44569,
-      0 10px 25px rgba(255, 107, 107, 0.6),
-      0 0 30px rgba(255, 202, 87, 0.8);
-  }
-  50% {
-    box-shadow:
-      0 6px 0 #c44569,
-      0 12px 35px rgba(72, 219, 251, 0.8),
-      0 0 45px rgba(72, 219, 251, 1);
-  }
-}
-
-/* Flame on top of number */
-.number-flame {
-  position: absolute;
-  top: -34px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 18px;
-  height: 38px;
-
-  background: radial-gradient(
-    circle,
-    #fff3b0 0%,
-    #ff9f43 40%,
-    #ff6b6b 80%
-  );
-
-  border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
-
-  box-shadow:
-    0 0 18px rgba(255, 159, 67, 1),
-    0 0 35px rgba(255, 107, 107, 0.9);
-
-  animation: numberFlicker 1.2s infinite alternate;
-}
-
-@keyframes numberFlicker {
-  from {
-    transform: translateX(-50%) rotate(-3deg) scale(1);
-  }
-  to {
-    transform: translateX(-50%) rotate(3deg) scale(1.15);
-  }
 }

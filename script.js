@@ -78,10 +78,6 @@
 
             function blowOutCandles() {
                 let blownOut = 0;
-                const ageFlame = document.querySelector(".age-flame");
-                if (isBlowing() && ageFlame) {
-                    ageFlame.style.display = "none";
-                }
                 if (candles.length > 0 && candles.some(candle => !candle.classList.contains("out"))) {
                     if (isBlowing()) {
                         candles.forEach(candle => {
